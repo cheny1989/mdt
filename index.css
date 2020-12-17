@@ -1,0 +1,55 @@
+body{
+    padding: 10px;
+}
+
+.AllInputs{
+    padding: 30px;
+
+    background-color: rgb(226, 226, 226);
+}
+
+/* remove Arrows - Inputs */
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .createRowRegisterStyle{
+    background-color: #d6d6d6;
+    border: black solid 1px;
+    color: black;
+    text-align: center;
+}
+
+.addRowBtn{
+    background-color: chartreuse;
+    width: 200px;
+    height: 30px;
+}
+
+.reasetInputBtn{
+    background-color: crimson;
+    height: 30px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  .dateStyle{
+      background-color: red;
+      border: black solid 1px;
+  }
