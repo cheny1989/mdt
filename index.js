@@ -32,6 +32,7 @@ function addRow() {
         typeOfDiamond: typeOfDiamond
     })
     createAllRows()
+    resetInputs();
 }
 createAllRows()
 
@@ -60,10 +61,10 @@ function createAllRows() {
 
 function createRowRegister(rowData, date, time, fullName, takeDiamond, pushDiamond, typeOfDiamond) {
     let row = document.createElement("div");
-    row.innerHTML = `<div>
+    row.innerHTML = `<div class="createRowRegisterStyle">
                     <table>
                     <tr>
-                     <th> ${date.split("-").reverse().join("-")}</th>                   
+                     <th> ${date.split("-").reverse().join("/")}</th>                   
                      <th> ${time}</th>                   
                      <th>${fullName}</th>                   
                      <th>${takeDiamond}</th>                   
@@ -79,7 +80,8 @@ function createRowRegister(rowData, date, time, fullName, takeDiamond, pushDiamo
 function createDeleteRow(rowData) {
     let deleteButton = document.createElement("button");
     deleteButton.id = rowData;
-    deleteButton.innerHTML = "DELETE";
+    deleteButton.innerHTML = "X";
+    deleteButton.className = "deleteButtonOfRow"
     deleteButton.onclick = deleteRow;
     return deleteButton;
 }
@@ -87,10 +89,15 @@ function createDeleteRow(rowData) {
 function deleteRow(e) {
 
     if (window.confirm("האם אתה בטוח?")) {
-        let rowData = e.target.id;
-        state[rowData] = null;
-        createAllRows();
-        saveState();
+        let promptWindow = prompt("אנא הכנס סיסמא כדי לאשר מחיקה זו")
+        if (promptWindow === "1989"){
+            let rowData = e.target.id;
+            state[rowData] = null;
+            createAllRows();
+            saveState();
+        } else{
+            alert("סיסמא לא נכונה. אנא נסה שוב")
+        }
     }
 }
 
@@ -101,4 +108,21 @@ function resetInputs() {
     $('#takeDiamond').val('')
     $('#pushDiamond').val('')
     $('#typeOfDiamond').val('')
+}
+
+// currently date
+let text = document.getElementById("dateToday");
+let today = new Date();
+let dd = String(today.getDate()).padStart(2, '0');
+let mm = String(today.getMonth() + 1).padStart(2, '0'); 
+let yyyy = today.getFullYear();
+
+if(dd<9 && mm<9){
+    text.innerHTML = "0"+(dd) + "/" +"0"+(mm) + "/" + yyyy
+} else if (mm<9){
+    text.innerHTML = (dd) + "/" + "0"+(mm) + "/" + yyyy
+} else if (dd<9){
+    text.innerHTML = "0"+(dd) + "/" + (mm) + "/" + yyyy
+}else{
+    text.innerHTML = dd + "/" + mm + "/" + yyyy
 }

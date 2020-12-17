@@ -5,61 +5,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-<!--     
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
     <title>MDT</title>
 </head>
+
 <body>
     <div>
-        <img src="LOGO.PNG" alt="Italian Trulli" width="100px">
-        <div class="header">
-            <h2>מעקב הוצאת יהלומים מהכספת</h2>
+        <div id="dateToday"></div>
+        <div class="logoAndTitle">
+            <img src="LOGO.PNG" alt="Italian Trulli" width="70px" height="70px">
+            <div class="header">
+                <div class="title">מעקב הוצאת יהלומים מהכספת</div>
+            </div>
         </div>
         <div class="AllInputs">
-            <label>תאריך דיווח</label>
-            <span style = 'color: red'><b>*</span>
+            <b><label>תאריך דיווח</label></b>
+            <span style='color: red'><b>*</span>
             <input type="date" id="date">
 
-            <label>שעה</label>
-            <span style = 'color: red'><b>*</span>
+            <b><label>שעה</label></b>
+            <span style='color: red'><b>*</span>
             <input type="time" id="time">
 
-            <label>שם מלא</label>
-            <span style = 'color: red'><b>*</span>
+            <b><label>שם מלא</label></b>
+            <span style='color: red'><b>*</span>
             <input type="text" id="fullName">
 
             <br />
 
-            <label>יציאה</label>
-            <span style = 'color: red'><b>*</span>
+            <b><label>יציאה</label></b>
+            <span style='color: red'><b>*</span>
             <input type="number" id="takeDiamond">
 
-            <label>כניסה</label>
-            <span style = 'color: red'><b>*</span>
+            <b><label>כניסה</label></b>
+            <span style='color: red'><b>*</span>
             <input type="number" id="pushDiamond">
 
-            <label>סוג יהלום</label>
-            <span style = 'color: red'><b>*</span>
+            <b><label>סוג יהלום</label></b>
+            <span style='color: red'><b>*</span>
             <input type="number" id="typeOfDiamond">
 
             <br />
-
-            <button class="addRowBtn" onclick="addRow()">הוסף דיווח</button>
-            <button class="reasetInputBtn" onclick="resetInputs()">נקה שדות</button>
+            <div class="allButtons">
+                <button class="addRowBtn" onclick="addRow()">הוסף דיווח</button>
+                <button class="reasetInputBtn" onclick="resetInputs()">נקה שדות</button>
+            </div>
         </div>
 
         <table>
             <tr>
-                <th>תאריך דיווח</th>
-                <th>שעה</th>
-                <th>שם מלא</th>
-                <th>יציאה</th>
-                <th>כניסה</th>
-                <th>סוג יהלום</th>
+                <th class="titleOfTable">תאריך דיווח</th>
+                <th class="titleOfTable">שעה</th>
+                <th class="titleOfTable">שם מלא</th>
+                <th class="titleOfTable">יציאה</th>
+                <th class="titleOfTable">כניסה</th>
+                <th class="titleOfTable">סוג יהלום</th>
             </tr>
         </table>
         <div id="container"></div>
