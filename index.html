@@ -13,57 +13,60 @@
 <body>
     <div>
         <div id="dateToday"></div>
-        <div class="logoAndTitle">
-            <img src="LOGO.PNG" alt="Italian Trulli" width="70px" height="70px">
-            <div class="header">
-                <div class="title">מעקב הוצאת יהלומים מהכספת</div>
+        <div id="currentTime"></div>
+        <div class="allBody">
+            <div class="logoAndTitle">
+                <img src="LOGO.PNG" alt="Italian Trulli" width="70px" height="70px">
+                <div class="header">
+                    <div class="title">מעקב הוצאת יהלומים מהכספת</div>
+                </div>
             </div>
-        </div>
-        <div class="AllInputs">
-            <b><label>תאריך דיווח</label></b>
-            <span style='color: red'><b>*</span>
-            <input type="date" id="date">
+            <div class="AllInputs">
+                <div class="input1_3">
+                    <b><label>תאריך דיווח</label></b>
+                    <span style='color: red'><b>*</span>
+                    <input type="date" id="date">
 
-            <b><label>שעה</label></b>
-            <span style='color: red'><b>*</span>
-            <input type="time" id="time">
+                    <b><label>שעה</label></b>
+                    <span style='color: red'><b>*</span>
+                    <input type="time" id="time">
 
-            <b><label>שם מלא</label></b>
-            <span style='color: red'><b>*</span>
-            <input type="text" id="fullName">
+                    <b><label>שם מלא</label></b>
+                    <span style='color: red'><b>*</span>
+                    <input type="text" id="fullName">
+                </div>
+                <div class="input4_6">
+                    <b><label>יציאה</label></b>
+                    <span style='color: red'><b>*</span>
+                    <input type="number" id="takeDiamond">
 
-            <br />
+                    <b><label>כניסה</label></b>
+                    <span style='color: red'><b>*</span>
+                    <input type="number" id="pushDiamond">
 
-            <b><label>יציאה</label></b>
-            <span style='color: red'><b>*</span>
-            <input type="number" id="takeDiamond">
+                    <b><label>סוג יהלום</label></b>
+                    <span style='color: red'><b>*</span>
+                    <input type="number" id="typeOfDiamond">
+                </div>
 
-            <b><label>כניסה</label></b>
-            <span style='color: red'><b>*</span>
-            <input type="number" id="pushDiamond">
-
-            <b><label>סוג יהלום</label></b>
-            <span style='color: red'><b>*</span>
-            <input type="number" id="typeOfDiamond">
-
-            <br />
-            <div class="allButtons">
-                <button class="addRowBtn" onclick="addRow()">הוסף דיווח</button>
-                <button class="reasetInputBtn" onclick="resetInputs()">נקה שדות</button>
+                <div class="allButtons">
+                    <button class="addRowBtn" onclick="addRow()">הוסף דיווח</button>
+                    <button class="reasetInputBtn" onclick="resetInputs()">נקה שדות</button>
+                </div>
             </div>
-        </div>
-
-        <table>
-            <tr>
-                <th class="titleOfTable">תאריך דיווח</th>
-                <th class="titleOfTable">שעה</th>
-                <th class="titleOfTable">שם מלא</th>
-                <th class="titleOfTable">יציאה</th>
-                <th class="titleOfTable">כניסה</th>
-                <th class="titleOfTable">סוג יהלום</th>
             </tr>
-        </table>
-        <div id="container"></div>
+            <table>
+                <tr>
+                    <th class="titleOfTable">תאריך דיווח</th>
+                    <th class="titleOfTable">שעה</th>
+                    <th class="titleOfTable">שם מלא</th>
+                    <th class="titleOfTable">יציאה</th>
+                    <th class="titleOfTable">כניסה</th>
+                    <th class="titleOfTable">סוג יהלום</th>
+                </tr>
+            </table>
+            <div id="container"></div>
+        </div>
     </div>
 
     <script src="index.js"></script>

@@ -23,16 +23,27 @@ function addRow() {
     let takeDiamond = document.getElementById("takeDiamond").value;
     let pushDiamond = document.getElementById("pushDiamond").value;
     let typeOfDiamond = document.getElementById("typeOfDiamond").value;
-    state.push({
-        date: date,
-        time: time,
-        fullName: fullName,
-        takeDiamond: takeDiamond,
-        pushDiamond: pushDiamond,
-        typeOfDiamond: typeOfDiamond
-    })
-    createAllRows()
-    resetInputs();
+
+    if (date.length < 1 && time.length < 1 && fullName.length < 1 && takeDiamond.length < 1 && pushDiamond.length < 1 && typeOfDiamond.length < 1) {
+        alert("יש למלא את כל השדות המסומנים באדום")
+    }else if(fullName.length > 25 || takeDiamond.length > 25 || pushDiamond.length > 25 || typeOfDiamond.length > 25){
+        alert("מספר התווים המקסימלי הינו 25")
+    } else {
+        if (window.confirm(" תאריך: "  + date + " שעה: " + time + " שם מלא: " + fullName  + " יציאה: " + takeDiamond + " כניסה: " + pushDiamond + " סוג יהלום: " + typeOfDiamond)) {
+            state.push({
+            date: date,
+            time: time,
+            fullName: fullName,
+            takeDiamond: takeDiamond,
+            pushDiamond: pushDiamond,
+            typeOfDiamond: typeOfDiamond
+        })
+        createAllRows()
+        resetInputs();
+    }else{
+        alert("אנא תקן את השדות ושלח שנית")
+    }
+}
 }
 createAllRows()
 
@@ -90,17 +101,18 @@ function deleteRow(e) {
 
     if (window.confirm("האם אתה בטוח?")) {
         let promptWindow = prompt("אנא הכנס סיסמא כדי לאשר מחיקה זו")
-        if (promptWindow === "1989"){
+        if (promptWindow === "1989") {
             let rowData = e.target.id;
             state[rowData] = null;
             createAllRows();
             saveState();
-        } else{
+        } else {
             alert("סיסמא לא נכונה. אנא נסה שוב")
         }
     }
 }
 
+// clear all input - button reset
 function resetInputs() {
     $('#date').val('')
     $('#time').val('')
@@ -110,19 +122,43 @@ function resetInputs() {
     $('#typeOfDiamond').val('')
 }
 
-// currently date
-let text = document.getElementById("dateToday");
+// current date and time
+let textOfDate = document.getElementById("dateToday");
 let today = new Date();
 let dd = String(today.getDate()).padStart(2, '0');
-let mm = String(today.getMonth() + 1).padStart(2, '0'); 
+let mm = String(today.getMonth() + 1).padStart(2, '0');
 let yyyy = today.getFullYear();
 
-if(dd<9 && mm<9){
-    text.innerHTML = "0"+(dd) + "/" +"0"+(mm) + "/" + yyyy
-} else if (mm<9){
-    text.innerHTML = (dd) + "/" + "0"+(mm) + "/" + yyyy
-} else if (dd<9){
-    text.innerHTML = "0"+(dd) + "/" + (mm) + "/" + yyyy
-}else{
-    text.innerHTML = dd + "/" + mm + "/" + yyyy
+if (dd < 9 && mm < 9) {
+    textOfDate.innerHTML = "0" + (dd) + "/" + "0" + (mm) + "/" + yyyy
+} else if (mm < 9) {
+    textOfDate.innerHTML = (dd) + "/" + "0" + (mm) + "/" + yyyy
+} else if (dd < 9) {
+    textOfDate.innerHTML = "0" + (dd) + "/" + (mm) + "/" + yyyy
+} else {
+    textOfDate.innerHTML = dd + "/" + mm + "/" + yyyy
 }
+
+
+var setIntervalToFunctionOfCurrentTime = setInterval(currenttimeFunction, 1000*60)
+
+function currenttimeFunction() {
+    let textOfTime = document.getElementById("currentTime");
+    let currentTime = new Date();
+    let hour = currentTime.getHours();
+    let minutes = currentTime.getMinutes();
+    let currentTimeNew = hour + ":" + minutes;
+    console.log(currentTimeNew);
+
+    if (hour < 10) {
+        textOfTime.innerHTML = "0" + hour + ":" + minutes;
+    } else if (minutes < 10) {
+        textOfTime.innerHTML = hour + ":" + "0" + minutes;
+    } else if (hour < 10 && minutes < 10) {
+        textOfTime.innerHTML = "0" + hour + ":" + "0" + minutes;
+    } else {
+        textOfTime.innerHTML = hour + ":" + minutes;
+    }
+}
+
+currenttimeFunction();
