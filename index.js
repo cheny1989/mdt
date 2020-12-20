@@ -156,6 +156,7 @@ function currentTimeFunction() {
     let hour = currentTime.getHours();
     let minutes = currentTime.getMinutes();
     let currentTimeNew = hour + ":" + minutes;
+    console.log(currentTimeNew);
 
     if (hour < 10) {
         textOfTime.innerHTML = "0" + hour + ":" + minutes;
@@ -169,3 +170,16 @@ function currentTimeFunction() {
 }
 
 currentTimeFunction();
+
+
+$(document).ready(function () {
+    $(".showBtnDelete").click(function () {
+        $(".deleteButtonOfRow").css({ "display": "block" });
+    });
+});
+
+$(document).ready(function () {
+    $(".hideBtnDelete").click(function () {
+        $(".deleteButtonOfRow").css({ "display": "none" });
+    });
+});

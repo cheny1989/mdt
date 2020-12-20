@@ -91,6 +91,10 @@ tr:nth-child(even) {
     background-color: #dddddd;
   }
 
+tr{
+    height: 40px;
+}
+
 .dateStyle{
     background-color: red;
     border: black solid 1px;
@@ -106,6 +110,7 @@ tr:nth-child(even) {
     margin-right: 2px;
     display: block;
     z-index: 1;
+    display: none;
   }
 
 .deleteButtonOfRow:hover{
@@ -141,4 +146,9 @@ tr:nth-child(even) {
 .backToHeader:hover{
     background-color: #2196F3;
     color: white;
+}
+
+.showBtnDelete, .hideBtnDelete{
+    width: 60px;
+    height: 25px;
 }
